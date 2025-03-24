@@ -1,4 +1,9 @@
 import random
+import time
+
+
+first_start = 1
+secount_start = 2
 
 
 
@@ -12,7 +17,7 @@ class Game():
             print('Great! You have selected the Medium difficulty level and you have 10 guesses')
             while True:
                 guess = int(input('Enter you choise: '))
-                generator = random.randrange(100)
+                generator = random.randrange(1,100)
                 if guess > generator:
                     counter -=1
                     if counter != 0:
@@ -34,7 +39,8 @@ class Game():
                         break    
 
                 elif guess == generator:
-                    print('Congrats you win!')    
+                    print('Congrats you win!') 
+                    break   
 
 
 
@@ -42,12 +48,12 @@ class Game():
 
         elif difficulty == 2:
             counter = 5
-            generator = random.randrange(100) 
             print('Great! You have selected the Medium difficulty level and you have 5 guesses')
             while True:
                 guess = int(input('Enter you choise: '))
-                generator = random.randrange(100)
+                generator = random.randrange(1,100)
                 if guess > generator:
+                    counter -=1
                     if counter != 0:
                         if counter == 1:
                             print(f'[You number is greater than our number {generator}\nNow you have {counter} more guess]')
@@ -70,7 +76,8 @@ class Game():
                         break    
 
                 elif guess == generator:
-                    print('Congrats you win!')       
+                    print('Congrats you win!')
+                    break       
 
 
 
@@ -79,7 +86,7 @@ class Game():
             print('Great! You have selected the Medium difficulty level and you have 3 guesses')  
             while True:
                 guess = int(input('Enter you choise: '))
-                generator = random.randrange(100)
+                generator = random.randrange(1,100)
                 if guess > generator:
                     counter -=1
                     if counter != 0:
@@ -100,28 +107,35 @@ class Game():
                         else:    
                             print(f'[You number is less than our number {generator}\nNow you have {counter} more guesses]')  
                     else:
-                        print('**The End***')    
-                        break    
-
+                        print('**The End***')  
+                        break  
+                    
+                    
+                    
                 elif guess == generator:
-                    print('Congrats you win!')                 
+                    print('Congrats you win!')  
+                    break               
 
   
         
 
     def main(self):
-        game = Game()
-        print('Welcome to the Number Guessing Game!')
-        print('1. Start Game')
-        print('2. End Game')
-        choise = int(input('Enter you choise: '))
         while True:
+            time.sleep(first_start)
+            print('Welcome to Number Guessing Game!')
+            time.sleep(secount_start)
+            game = Game()
+            print('1. Start Game')
+            print('2. End Game')
+            choise = int(input('Enter you choise: '))
             if choise == 1:
                 game.guesing()
-            elif choise ==2:
+            elif choise == 2:
+                print('Have a nice day!')
                 break
             else:
                 print('Sorry we dont have that option. Please try again!')
+                
             
 
 
